@@ -6,14 +6,11 @@ var WineSchema = new Schema({
     stars: {type : Number, required : true},
     country: {type: String, required: true, max: 80},
     color: {type: String, required: true, max: 20},
-    
-    grapes: [
-        {type: String, required: true, max: 60}
-    ],
+    grapes: [String],
     yearMade: {type: Number, required: true},
     region: {type: String, required: true, max: 100},
     price: {type: Number, required: true},
-    articleNumber: {type: Number, required : true},
+    articleNumber: {type: Number, required : true, unique: true},
     
     
 });

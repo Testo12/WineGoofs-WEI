@@ -3,14 +3,19 @@ var Schema = mongoose.Schema;
 
 var WineSchema = new Schema({
     name: {type: String, required: true, max: 100},
-    type: {type : String, required : true , max: 200},
-    ammount: {type: number, required: true},
-    taste: {type: String, required: true, max: 100},
-    articleNumber: {type: Number, required : true},
-    grapes: {type: String, required: true, max: 60},
+    stars: {type : Number, required : true},
+    country: {type: String, required: true, max: 80},
+    color: {type: String, required: true, max: 20},
+    
+    grapes: [
+        {type: String, required: true, max: 60}
+    ],
+    yearMade: {type: Number, required: true},
+    region: {type: String, required: true, max: 100},
     price: {type: Number, required: true},
-    originLand: {type: String, required: true, max: 80},
-    province: {type: String, required: true, max: 100}
+    articleNumber: {type: Number, required : true},
+    
+    
 });
 
 module.exports = mongoose.model('Wine', WineSchema);

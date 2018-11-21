@@ -6,7 +6,7 @@ exports.create = function(req,res){
     });
 
     
-    product.save(function(error){
+    cart.save(function(error){
         if (error){
             return next(error);
         }

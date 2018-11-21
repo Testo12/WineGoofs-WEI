@@ -7,7 +7,7 @@ var home = require('./routes/home.router');
 var PORT = process.env.PORT || 4242;
 var app = express();
 
-var db_url = 'mongodb://User1:Passw0rd@ds113454.mlab.com:13454/winegoofs';
+var db_url = 'mongodb://User1:passw0rd@ds113454.mlab.com:13454/winegoofs';
 mongoose.connect(db_url, {useNewUrlParser: true});
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;

@@ -7,13 +7,16 @@ function showList(){
         success: function(list){
             var products = list;
             var $form = $('<form id="colorCategoryDropDown">');
-            var colorList = '<option selected="selected" value="0">- Select color of wine -</option>';
+            var colorList = '<option selected="selected" value="0">- Välj vin sort -</option>';
             var listItems = '<div id="objectCollection">';
             var lookup = {};
             var result = [];
             //Fetches all wines
             for (var i = 0; i < products.length; i++) {
-                listItems += '<div class="objectDiv" onClick=showDetails("'+ products[i]._id +'")><img class="img" src="../IMG/'+products[i].articleNumber+'.jpg"><div class="wineName">' + products[i].name + '</div> <div class="winePrice"' + products[i].price + '</div>';
+         
+
+                listItems += '<div class="wines" onClick=showDetails("'+ products[i]._id +'")><img class="img" src="../IMG/'+products[i].articleNumber+'.jpg"><div class="wineName">' + products[i].name + '</div> <div class="winePrice"' + products[i].price + '</div>';
+
                 
             };
             listItems += '</div>'
@@ -38,7 +41,7 @@ function showList(){
             //an option to go back and show all the wines
             colorList += '<option value="all">Show all</option>'
             //append everything to the div
-            var $select = $('<select id="categoryList" onchange="categorizeList(this.value)">').append(
+            var $select = $('<select id="categoryList" class="winecategory" onchange="categorizeList(this.value)">').append(
                 colorList
                 
 
@@ -69,7 +72,7 @@ function categorizeList(color){
             if(color == 'all'){
             //Fetches all wines
                 for (var i = 0; i < products.length; i++) {
-                    listItems += '<div class="objectDiv" onClick=showDetails("'+ products[i]._id +'")><img class="img" src="../IMG/'+products[i].articleNumber+'.jpg"><div class="wineName">' + products[i].name + '</div> <div class="winePrice"' + products[i].price + '</div>';
+                    listItems += '<div class="wines" onClick=showDetails("'+ products[i]._id +'")><img class="img" src="../IMG/'+products[i].articleNumber+'.jpg"><div class="wineName">' + products[i].name + '</div> <div class="winePrice"' + products[i].price + '</div>';
                     
                 };
                 listItems += '</div>';
@@ -81,7 +84,8 @@ function categorizeList(color){
             //fetches wines in this specific category
             for(var i = 0; i < products.length; i++){
                 if(products[i].color == color){
-                    categorizedProducts += '<div class="objectDiv" onClick=showDetails("'+ products[i]._id +'")><img class="img" src="../IMG/'+products[i].articleNumber+'.jpg"><div class="wineName">' + products[i].name + '</div> <div class="winePrice"' + products[i].price + '</div>';
+                    categorizedProducts += '<div class="wines" onClick=showDetails("'+ products[i]._id +'")><img class="img" src="../IMG/'+products[i].articleNumber+'.jpg"><div class="wineName">' + products[i].name + '</div> <div class="winePrice"' + products[i].price + '</div>';
+
                 };
             };
             //puts them inside the div

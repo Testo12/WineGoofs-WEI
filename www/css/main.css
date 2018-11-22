@@ -1,14 +1,15 @@
 .center {
     /*Is used to put the logo in the middle of the screen*/
     text-align: center;
-    padding: 10px;
+    padding: 20px;
     color: white;
+    margin-bottom: -10px;
 }
 
 body {
     /*This gives the page a background and sets it to be centered and fixed behind everything*/
     background-image: url(http://www.storypointvineyards.com/images/vineyard-1.jpg);
-    background-repeat: no-repeat;
+    background-repeat: space;
     background-attachment: fixed;
     background-position: center; 
     background-size: 100%;
@@ -26,4 +27,32 @@ body {
     background-color: aliceblue;
     margin: auto;
     margin-top: 50px;
+    padding: 20px;
+    text-align: center;
+    overflow: hidden;
+    border: groove #343a40 2px;
+}
+
+.wines {
+    border: black solid 1px;
+    float: left;
+    width: 32.01%;
+    margin: auto;
+    height: 420px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    font-size: 1.1em;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.winecategory {
+    width: 85%;
+    filter: opacity(85%);
+    background-color: aliceblue;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 5%;
 }

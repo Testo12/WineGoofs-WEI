@@ -1,4 +1,5 @@
 var Wine = require('../models/wine.model');
+
 exports.list = function(req,res){
     Wine.find(function(err, wine){
         if (err) return next(err);

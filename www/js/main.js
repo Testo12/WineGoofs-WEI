@@ -7,7 +7,7 @@ function showList(){
         success: function(list){
             var products = list;
             var $form = $('<form id="colorCategoryDropDown">');
-            var colorList = '<option selected="selected" value="0">- Select color of wine -</option>';
+            var colorList = '<option selected="selected" value="0">- Välj vin sort -</option>';
             var listItems = '<div id="objectCollection">';
             var lookup = {};
             var result = [];
@@ -69,7 +69,7 @@ function categorizeList(color){
             if(color == 'all'){
             //Fetches all wines
                 for (var i = 0; i < products.length; i++) {
-                    listItems += '<div class="objectDiv">' + products[i].name + ' ' + products[i].price + '</div>';
+                    listItems += '<div class="wines">' + products[i].name + ' ' + products[i].price + '</div>';
                     
                 };
                 listItems += '</div>';
@@ -81,7 +81,7 @@ function categorizeList(color){
             //fetches wines in this specific category
             for(var i = 0; i < products.length; i++){
                 if(products[i].color == color){
-                    categorizedProducts += '<div class="objectDiv">' + products[i].name + ' ' + products[i].price + '</div>';
+                    categorizedProducts += '<div class="wines">' + products[i].name + ' ' + products[i].price + '</div>';
                 };
             };
             //puts them inside the div

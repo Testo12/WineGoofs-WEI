@@ -1,0 +1,29 @@
+.center {
+    /*Is used to put the logo in the middle of the screen*/
+    text-align: center;
+    padding: 10px;
+    color: white;
+}
+
+body {
+    /*This gives the page a background and sets it to be centered and fixed behind everything*/
+    background-image: url(http://www.storypointvineyards.com/images/vineyard-1.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+    background-size: 100%;
+}
+
+.winebuddy {
+    /*Makes the slogan italic*/
+    font-style: italic;
+}
+
+.winelist {
+    /*Styles the list of wines*/
+    width: 85%;
+    filter: opacity(85%);
+    background-color: aliceblue;
+    margin: auto;
+    margin-top: 50px;
+}

@@ -13,7 +13,7 @@ function showList(){
             var result = [];
             //Fetches all wines
             for (var i = 0; i < products.length; i++) {
-                listItems += '<div class="objectDiv">' + products[i].name + ' ' + products[i].price + '</div>';
+                listItems += '<div class="wines">' + products[i].name + ' ' + products[i].price + '</div>';
                 
             };
             listItems += '</div>'
@@ -38,7 +38,7 @@ function showList(){
             //an option to go back and show all the wines
             colorList += '<option value="all">Show all</option>'
             //append everything to the div
-            var $select = $('<select id="categoryList" onchange="categorizeList(this.value)">').append(
+            var $select = $('<select id="categoryList" class="winecategory" onchange="categorizeList(this.value)">').append(
                 colorList
                 
 

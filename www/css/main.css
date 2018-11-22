@@ -26,4 +26,29 @@ body {
     background-color: aliceblue;
     margin: auto;
     margin-top: 50px;
+    padding: 20px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.wines {
+    border: black solid 1px;
+    float: left;
+    width: 32.01%;
+    margin: auto;
+    height: 420px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    font-size: 1.1em;
+}
+
+.winecategory {
+    width: 85%;
+    filter: opacity(85%);
+    background-color: aliceblue;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 5%;
 }

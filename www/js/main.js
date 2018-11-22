@@ -65,16 +65,17 @@ function categorizeList(color){
             $('#wineList').empty();
             var categorizedProducts = '';
             var products = list;
+            listItems = '';
             if(color == 'all'){
             //Fetches all wines
                 for (var i = 0; i < products.length; i++) {
-                    categorizedProducts += '<div class="objectDiv">' + products[i].name + ' ' + products[i].price + '</div>';
+                    listItems += '<div class="objectDiv">' + products[i].name + ' ' + products[i].price + '</div>';
                     
                 };
-                listItems += '</div>'
+                listItems += '</div>';
                 //Puts results of the previous loop inside the wineList div
                 $('#wineList').append(
-                    categorizedProducts
+                    listItems
                 );
             };
             //fetches wines in this specific category

@@ -110,7 +110,7 @@ function showDetails(wineID){
             var wineOverlay = $('.wineDetailsOverlay');
             var productInformation = wine;
             var grapeArr = '';
-            var $table = $('<table>');
+            var $table = $('<table class="winedetails">');
             var $name = $('<tr>').append(
                 $('<th>').text("Name"),
                 $('<td>').text(productInformation.name)

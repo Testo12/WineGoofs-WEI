@@ -63,3 +63,23 @@ body {
     margin-bottom: 20px;
     font-style: italic;
 }
+
+.wineDetailsOverlay {
+    display: none;
+    border: black solid 1px;
+    width: 32.01%;
+    float: left;
+    position: fixed;
+    overflow: visible;
+    margin: auto;
+    height: 420px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    font-size: 1.1em;
+    font-style: italic;
+    font-weight: bold;
+    background-color: white;
+    padding: 15px;
+    z-index: 6;
+}

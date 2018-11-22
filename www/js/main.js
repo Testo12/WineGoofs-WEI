@@ -15,7 +15,7 @@ function showList(){
             for (var i = 0; i < products.length; i++) {
          
 
-                listItems += '<div class="wines" onClick=showDetails("'+ products[i]._id +'")><img class="img" src="../IMG/'+products[i].articleNumber+'.jpg"><div class="wineName">' + products[i].name + '</div> <div class="winePrice"' + products[i].price + '</div>';
+                listItems += '<div class="wines" onClick=showDetails("'+ products[i]._id +'")><img class="img" src="../IMG/'+products[i].articleNumber+'.jpg"><div class="wineName">' + products[i].name + '</div> <div class="winePrice">' + products[i].price + '</div></div>';
 
                 
             };
@@ -72,7 +72,7 @@ function categorizeList(color){
             if(color == 'all'){
             //Fetches all wines
                 for (var i = 0; i < products.length; i++) {
-                    listItems += '<div class="wines" onClick=showDetails("'+ products[i]._id +'")><img class="img" src="../IMG/'+products[i].articleNumber+'.jpg"><div class="wineName">' + products[i].name + '</div> <div class="winePrice"' + products[i].price + '</div>';
+                    listItems += '<div class="wines" onClick=showDetails("'+ products[i]._id +'")><img class="img" src="../IMG/'+products[i].articleNumber+'.jpg"><div class="wineName">' + products[i].name + '</div> <div class="winePrice">' + products[i].price + '</div></div>';
                     
                 };
                 listItems += '</div>';
@@ -84,7 +84,7 @@ function categorizeList(color){
             //fetches wines in this specific category
             for(var i = 0; i < products.length; i++){
                 if(products[i].color == color){
-                    categorizedProducts += '<div class="wines" onClick=showDetails("'+ products[i]._id +'")><img class="img" src="../IMG/'+products[i].articleNumber+'.jpg"><div class="wineName">' + products[i].name + '</div> <div class="winePrice"' + products[i].price + '</div>';
+                    categorizedProducts += '<div class="wines" onClick=showDetails("'+ products[i]._id +'")><img class="img" src="../IMG/'+products[i].articleNumber+'.jpg"><div class="wineName">' + products[i].name + '</div> <div class="winePrice">' + products[i].price + '</div></div>';
 
                 };
             };

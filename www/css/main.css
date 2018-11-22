@@ -23,7 +23,7 @@ body {
 .winelist {
     /*Styles the list of wines*/
     width: 85%;
-    filter: opacity(85%);
+    filter: opacity(95%);
     background-color: aliceblue;
     margin: auto;
     margin-top: 50px;
@@ -45,6 +45,8 @@ body {
     font-size: 1.1em;
     font-style: italic;
     font-weight: bold;
+    background-color: white;
+    padding: 15px;
 }
 
 .winecategory {
@@ -55,4 +57,9 @@ body {
     padding: 20px;
     text-align: center;
     margin-bottom: 5%;
+}
+
+.winetext {
+    margin-bottom: 20px;
+    font-style: italic;
 }

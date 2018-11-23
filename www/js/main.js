@@ -193,23 +193,21 @@ function addCart(wineID){
         type: 'GET',
         url: 'wine/'+wineID,
         success: function(wine){
-            var $shoppingCart = $('<a>').append(
+            var $shoppingCart = $('<div class="shoppingcart rounded">').append(
                     $('<span class="item">').append(
                         $('<span class="item-left">').append(
                             $('<img class="img-thumbnail imageThumbnail" src="IMG/'+wine.articleNumber+'.jpg" alt="" />'),
                             $('<span class="item-info">').append(
-                                $('<span>').text(wine.name),
-                                $('<span>').text(wine.price+'kr')
+                                $('<span class="winename">').text(wine.name + " " + wine.price+' kr'),
+                                
                             )
                         ),
-                        $('<span class="item-right">').append(
-                            $('<button class="btn btn-danger  fa fa-close">')
+                        $('<span class="item-left">').append(
+                            $('<button class="btn btn-danger  fa fa-close">').text('Ta Bort')
                         )
                 ),
                 $('<li class="dropdown-divider">'),
-                $('<li>').append(
-                    $('<a class="text-xs-center" href="#">').text('View Cart')
-                )
+               
             );
             $('#myDropdown').append(
                 $shoppingCart

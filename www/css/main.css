@@ -110,11 +110,6 @@ body {
     padding: 10px;
 }
 
-
-.bigicon {    
-    color:white;
-}
-
 .dropdown .dropbtn {
     cursor: pointer;
     font-size: 16px;    
@@ -123,7 +118,7 @@ body {
     padding: 14px 16px;
     background-color: inherit;
     font-family: inherit;
-    margin: 0;
+    margin-top: -5px;
 }
 .dropdown-content {
     display: none;
@@ -145,18 +140,32 @@ body {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 160px;
+    width: fit-content;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
 .item-info{
-    float:left;
+
 }
 
 .imageThumbnail{
-    float: right;
+    float: left;
+    margin: auto;
 }
 
+.shoppingcart {
+    width: 300px;   
+    overflow: visible;
+    padding: 10px;
+}
 
+.winename {
+    float: left;
+    margin-right: 30px;
+}
+
+.fat {
+    font-weight: bold;
+}
 
 

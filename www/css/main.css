@@ -72,7 +72,7 @@ body {
     display    : none;
 }
 
-    .winetext {
+.winetext {
     margin-bottom: 20px;
     font-style: italic;
 }
@@ -84,12 +84,12 @@ body {
     float: left;
     position: fixed;
     overflow: visible;
-    margin: auto;
+    margin: 0 auto;
     height: auto;
     margin-left: 20px;
     margin-top: 20px;
     font-size: 1.1em;
-    background-color: aliceblue;
+    background-color: white;
     padding: 15px;
     z-index: 6;
 }

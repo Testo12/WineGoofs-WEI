@@ -120,11 +120,11 @@ function showDetails(wineID){
             );
             var $price = $('<tr class="infospace">').append(
                 
-                $('<td class="infospace">').text("Pris: " + productInformation.price)                   
+                $('<td class="infospace">').text("Pris: " + productInformation.price + " kr")                   
             );
             var $rating = $('<tr class="infospace">').append(
                 
-                $('<td class="infospace">').text("Betyg: " + productInformation.stars)
+                $('<td class="infospace">').text("Betyg: " + productInformation.stars + " stjärnor")
             );
             var $color = $('<tr class="infospace">').append(
                 

@@ -111,6 +111,7 @@ function showDetails(wineID){
             var productInformation = wine;
             var grapeArr = '';
             var $table = $('<table class="winedetails">');
+
             var $name = $('<tr class="infospace">').append(
                 
                 $('<td class="infospace">').text("Namn: " + productInformation.name)
@@ -130,12 +131,14 @@ function showDetails(wineID){
             var $country = $('<tr class="infospace">').append(
                 
                 $('<td class="infospace">').text("Ursprung: " + productInformation.country)
+
             );
             
             if (productInformation.grapes.length <= 1) 
             {
                 grapeArr = productInformation.grapes
             }
+
             else
                 {
                     for(var i = 0; i<productInformation.grapes.length; i++){
@@ -147,9 +150,11 @@ function showDetails(wineID){
                     "Druvor: " + grapeArr
                     )
             );
+
             var $year = $('<tr class="infospace">').append(
                 
                 $('<td class="infospace">').text("Produktions År: " + productInformation.yearMade)
+
             );
             var $region = $('<tr class="infospace">').append(
                 
@@ -166,15 +171,55 @@ function showDetails(wineID){
                 $region
             );
             $('.wineDetailsOverlay').append(
-                $table
+                $table,
+                $('<button onClick="addCart("'+ productInformation.articleNumber +'")">Lägg till korgen</button>')
             );
-            wineOverlay.fadeIn(100);
+            $('.wineDetailsOverlay, #overlay-back').fadeIn(500);
             $('body').css('overflow', 'hidden');
             $('.wineDetailsOverlay-close').click(function () {
-                wineOverlay.fadeOut(100);
+                $('.wineDetailsOverlay, #overlay-back').fadeOut(500);
                 $('body').css('overflow', 'auto');
             });
 
         }
     });
 };
+
+function addCart(wineNumber){
+    var product = {
+        winearticleNumber: wineNumber
+    };
+    $.ajax({
+        type: 'POST',
+        contentType : "application/json",
+        url: 'cart/create',
+        data : JSON.stringify(product),
+        success: function(response){
+            loadCart(wineNumber);
+        }
+    });
+};
+
+function loadCart(wineNumber){
+    $.ajax({
+        type: 'GET',
+        url: 'wine',
+        success: function(list){
+            var wineList = list;
+            var wineID;
+            for(var i = 0; i < wineList; i++){
+                if(wineNumber == wineList[i].articleNumber){
+                    wineID += wineList[i]._id;
+                };
+            };
+            $.ajax({
+                type: 'GET',
+                url: 'cart/'+wineID,
+                success: function(result){
+                    
+                }
+            })
+        }
+    });
+};
+

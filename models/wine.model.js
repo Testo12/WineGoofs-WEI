@@ -10,9 +10,7 @@ var WineSchema = new Schema({
     yearMade: {type: Number, required: true},
     region: {type: String, required: true, max: 100},
     price: {type: Number, required: true},
-    articleNumber: {type: Number, required : true},
-    
-    
+    articleNumber: {type: Number, required : true},  
 });
 
 module.exports = mongoose.model('Wine', WineSchema);

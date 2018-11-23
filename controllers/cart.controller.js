@@ -12,9 +12,6 @@ exports.create = function(req,res){
         }
         res.send('Request created');
     });
-
-
-
 };
 
 exports.delete = function(req,res){

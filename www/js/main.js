@@ -175,7 +175,7 @@ function showDetails(wineID){
             );
             $('.wineDetailsOverlay').append(
                 $table,
-                $('<button onClick="addCart("'+ productInformation.articleNumber +'")">Lägg till korgen</button>')
+                $('<button onClick=addCart("'+ productInformation._id +'")>Lägg till korgen</button>')
             );
             $('.wineDetailsOverlay, #overlay-back').fadeIn(500);
             $('body').css('overflow', 'hidden');
@@ -188,41 +188,45 @@ function showDetails(wineID){
     });
 };
 
-function addCart(wineNumber){
-    var product = {
-        winearticleNumber: wineNumber
-    };
-    $.ajax({
-        type: 'POST',
-        contentType : "application/json",
-        url: 'cart/create',
-        data : JSON.stringify(product),
-        success: function(response){
-            loadCart(wineNumber);
-        }
-    });
-};
-
-function loadCart(wineNumber){
+function addCart(wineID){
     $.ajax({
         type: 'GET',
-        url: 'wine',
-        success: function(list){
-            var wineList = list;
-            var wineID;
-            for(var i = 0; i < wineList; i++){
-                if(wineNumber == wineList[i].articleNumber){
-                    wineID += wineList[i]._id;
-                };
-            };
-            $.ajax({
-                type: 'GET',
-                url: 'cart/'+wineID,
-                success: function(result){
-                    
-                }
-            })
+        url: 'wine/'+wineID,
+        success: function(wine){
+            var $shoppingCart = $('<a>').append(
+                    $('<span class="item">').append(
+                        $('<span class="item-left">').append(
+                            $('<img class="img-thumbnail imageThumbnail" src="IMG/'+wine.articleNumber+'.jpg" alt="" />'),
+                            $('<span class="item-info">').append(
+                                $('<span>').text(wine.name),
+                                $('<span>').text(wine.price+'kr')
+                            )
+                        ),
+                        $('<span class="item-right">').append(
+                            $('<button class="btn btn-danger  fa fa-close">')
+                        )
+                ),
+                $('<li class="dropdown-divider">'),
+                $('<li>').append(
+                    $('<a class="text-xs-center" href="#">').text('View Cart')
+                )
+            );
+            $('#myDropdown').append(
+                $shoppingCart
+            );
         }
     });
 };
 
+function showCart(){
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+window.onclick = function(e) {
+    if (!e.target.matches('.dropbtn')) {
+      var myDropdown = document.getElementById("myDropdown");
+        if (myDropdown.classList.contains('show')) {
+          myDropdown.classList.remove('show');
+        }
+    }
+  }

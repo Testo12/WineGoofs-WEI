@@ -15,7 +15,7 @@ function showList(){
             for (var i = 0; i < products.length; i++) {
          
 
-                listItems += '<div class="wines" onClick=showDetails("'+ products[i]._id +'")><img class="img" src="../IMG/'+products[i].articleNumber+'.jpg"><div class="wineName">' + products[i].name + '</div> <div class="winePrice">' + products[i].price + " kr" + '</div></div>';
+                listItems += '<div class="wines" onClick=showDetails("'+ products[i]._id +'")><img class="img-fluid" alt="Responsive image" src="../IMG/'+products[i].articleNumber+'.jpg"><div class="wineName">' + products[i].name + '</div> <div class="winePrice">' + products[i].price + " kr" + '</div></div>';
 
                 
             };
@@ -72,7 +72,7 @@ function categorizeList(color){
             if(color == 'all'){
             //Fetches all wines
                 for (var i = 0; i < products.length; i++) {
-                    listItems += '<div class="wines" onClick=showDetails("'+ products[i]._id +'")><img class="img" src="../IMG/'+products[i].articleNumber+'.jpg"><div class="wineName">' + products[i].name + '</div> <div class="winePrice">' + products[i].price + " kr" + '</div></div>';
+                    listItems += '<div class="wines" onClick=showDetails("'+ products[i]._id +'")><img class="img-fluid" alt="Responsive image" src="../IMG/'+products[i].articleNumber+'.jpg"><div class="wineName">' + products[i].name + '</div> <div class="winePrice">' + products[i].price + " kr" + '</div></div>';
                     
                 };
                 listItems += '</div>';
@@ -84,7 +84,7 @@ function categorizeList(color){
             //fetches wines in this specific category
             for(var i = 0; i < products.length; i++){
                 if(products[i].color == color){
-                    categorizedProducts += '<div class="wines" onClick=showDetails("'+ products[i]._id +'")><img class="img" src="../IMG/'+products[i].articleNumber+'.jpg"><div class="wineName">' + products[i].name + '</div> <div class="winePrice">' + products[i].price + " kr" + '</div></div>';
+                    categorizedProducts += '<div class="wines" onClick=showDetails("'+ products[i]._id +'")><img class="img-fluid" alt="Responsive image" src="../IMG/'+products[i].articleNumber+'.jpg"><div class="wineName">' + products[i].name + '</div> <div class="winePrice">' + products[i].price + " kr" + '</div></div>';
 
                 };
             };
@@ -104,54 +104,61 @@ function showDetails(wineID){
         success: function(wine){
             $('.wineDetailsOverlay').empty();
             $('.wineDetailsOverlay').append(
-                $('<span class="wineDetailsOverlay-close">x</span><img src="" />')
+                $('<span type="button" class=" wineDetailsOverlay-close btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Close">X</span><img src="" />')
             );
             var wineDiv = $('#objectDiv');
             var wineOverlay = $('.wineDetailsOverlay');
             var productInformation = wine;
             var grapeArr = '';
             var $table = $('<table class="winedetails">');
-            var $name = $('<tr>').append(
-                $('<th>').text("Namn"),
-                $('<td>').text(productInformation.name)
-            );
-            var $price = $('<tr>').append(
-                $('<th>').text("Pris"),
-                $('<td>').text(productInformation.price)                   
-            );
-            var $rating = $('<tr>').append(
-                $('<th>').text("Betyg"),
-                $('<td>').text(productInformation.stars)
-            );
-            var $color = $('<tr>').append(
-                $('<th>').text("Typ"),
-                $('<td>').text(productInformation.color)
-            );
-            var $country = $('<tr>').append(
-                $('<th>').text("Ursprung"),
-                $('<td>').text(productInformation.country)
-            );
-            for(var i = 0; i<productInformation.grapes.length; i++){
-                grapeArr += '<option value = "'+productInformation.grapes[i]+'">'+productInformation.grapes[i]+'</option>';
-            }
-            var $grapes = $('<tr>').append(
-                $('<th>').text("Druvor"),
-                $('<td>').append(
-                    $('<form id="grapeDropDown">').append(
-                        $('<select id="grapeList">').append(
-                            grapeArr
-                        )
-                    )
 
-                )
+            var $name = $('<tr class="infospace">').append(
+                
+                $('<td class="infospace">').text("Namn: " + productInformation.name)
             );
-            var $year = $('<tr>').append(
-                $('<th>').text("Produktions år"),
-                $('<td>').text(productInformation.yearMade)
+            var $price = $('<tr class="infospace">').append(
+                
+                $('<td class="infospace">').text("Pris: " + productInformation.price)                   
             );
-            var $region = $('<tr>').append(
-                $('<th>').text("Region"),
-                $('<td>').text(productInformation.region)
+            var $rating = $('<tr class="infospace">').append(
+                
+                $('<td class="infospace">').text("Betyg: " + productInformation.stars)
+            );
+            var $color = $('<tr class="infospace">').append(
+                
+                $('<td class="infospace">').text("Vinsort: " + productInformation.color)
+            );
+            var $country = $('<tr class="infospace">').append(
+                
+                $('<td class="infospace">').text("Ursprung: " + productInformation.country)
+
+            );
+            
+            if (productInformation.grapes.length <= 1) 
+            {
+                grapeArr = productInformation.grapes
+            }
+
+            else
+                {
+                    for(var i = 0; i<productInformation.grapes.length; i++){
+                        grapeArr += productInformation.grapes[i]+ ", "
+                    }
+                }
+            var $grapes = $('<tr class="infospace">').append(
+                $('<td class="infospace">').append(
+                    "Druvor: " + grapeArr
+                    )
+            );
+
+            var $year = $('<tr class="infospace">').append(
+                
+                $('<td class="infospace">').text("Produktions År: " + productInformation.yearMade)
+
+            );
+            var $region = $('<tr class="infospace">').append(
+                
+                $('<td class="infospace">').text("Region: " + productInformation.region)
             );
             $table.append(
                 $name,

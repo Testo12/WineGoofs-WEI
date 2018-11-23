@@ -112,6 +112,8 @@ function showDetails(wineID){
             var grapeArr = '';
             var $table = $('<table class="winedetails">');
 
+            var $img = $('<img class="img-fluid" alt="Responsive image" src="../IMG/'+productInformation.articleNumber+'.jpg"> ')
+
             var $name = $('<tr class="infospace">').append(
                 
                 $('<td class="infospace">').text("Namn: " + productInformation.name)
@@ -161,6 +163,7 @@ function showDetails(wineID){
                 $('<td class="infospace">').text("Region: " + productInformation.region)
             );
             $table.append(
+                $img,
                 $name,
                 $price,
                 $rating,

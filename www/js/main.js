@@ -193,11 +193,10 @@ function addCart(wineID){
         type: 'GET',
         url: 'wine/'+wineID,
         success: function(wine){
-            counter ++;
 
-            var $shoppingCart = $('<a id='+wine._id+' class="shoppingcart rounded">').append(
+            var $shoppingCart = $('<a id='+wine._id+' >').append(
 
-                    $('<span class="item">').append(
+                    $('<span class=" item shoppingcart rounded">').append(
                         $('<span class="item-left">').append(
                             $('<img class="img-thumbnail imageThumbnail" src="IMG/'+wine.articleNumber+'.jpg" alt="" />'),
                             $('<span class="item-info">').append(

@@ -144,9 +144,6 @@ body {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
-.item-info{
-
-}
 
 .imageThumbnail{
     float: left;
@@ -155,12 +152,12 @@ body {
 
 .shoppingcart {
     width: 300px;   
-    overflow: visible;
     padding: 10px;
 }
 
 .winename {
     float: left;
+    overflow: hidden;
     margin-right: 30px;
 }
 

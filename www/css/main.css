@@ -1,4 +1,4 @@
-.center {
+.logocenter {
     /*Is used to put the logo in the middle of the screen*/
     text-align: center;
     padding: 20px;
@@ -23,7 +23,7 @@ body {
 .winelist {
     /*Styles the list of wines*/
     width: 85%;
-    filter: opacity(85%);
+    filter: opacity(95%);
     background-color: aliceblue;
     margin: auto;
     margin-top: 50px;
@@ -46,6 +46,7 @@ body {
     font-style: italic;
     font-weight: bold;
     background-color: white;
+    padding: 15px;
 }
 
 .winecategory {
@@ -57,3 +58,56 @@ body {
     text-align: center;
     margin-bottom: 5%;
 }
+
+#overlay-back { 
+    position   : absolute; 
+    top        : 0; 
+    left       : 0; 
+    width      : 100%; 
+    height     : 100%; 
+    background : #000; 
+    opacity    : 0.6; 
+    filter     : alpha(opacity=60); 
+    z-index    : 5;
+    display    : none;
+}
+
+    .winetext {
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.wineDetailsOverlay {
+    display: none;
+    border: black solid 1px;
+    width: fit-content;
+    float: left;
+    position: fixed;
+    overflow: visible;
+    margin: auto;
+    height: auto;
+    margin-left: 20px;
+    margin-top: 20px;
+    font-size: 1.1em;
+    background-color: aliceblue;
+    padding: 15px;
+    z-index: 6;
+}
+
+.wineDetailsOverlay-close {
+    border: black solid 1px;
+    padding: 1px;
+    color: red;
+    background-color:white;
+    margin-bottom: 20px;
+    height: 25px;
+    width: 25px;
+    border-bottom: 0px;
+}
+
+.infospace {
+    margin: auto;
+    padding: 10px;
+}
+
+

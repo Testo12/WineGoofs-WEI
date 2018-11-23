@@ -195,23 +195,22 @@ function addCart(wineID){
         success: function(wine){
             counter ++;
 
-            var $shoppingCart = $('<a id='+wine._id+'>').append(
+            var $shoppingCart = $('<a id='+wine._id+' class="shoppingcart rounded">').append(
+
                     $('<span class="item">').append(
                         $('<span class="item-left">').append(
                             $('<img class="img-thumbnail imageThumbnail" src="IMG/'+wine.articleNumber+'.jpg" alt="" />'),
                             $('<span class="item-info">').append(
-                                $('<span>').text(wine.name),
-                                $('<span>').text(wine.price+'kr')
+                                $('<span class="winename">').text(wine.name + " " + wine.price+' kr'),
+                                
                             )
                         ),
                         $('<span class="item-right">').append(
-                            $('<button class="btn btn-danger  fas fa-close" onClick=removeWine("'+wine._id+'")>')
+                            $('<button class="btn btn-danger  fas fa-close" onClick=removeWine("'+wine._id+'")>').text('Ta Bort')
                         )
                 ),
                 $('<li class="dropdown-divider">'),
-                $('<li>').append(
-                    $('<a class="text-xs-center" href="#">').text('View Cart')
-                )
+               
             );
             $('#myDropdown').append(
                 $shoppingCart

@@ -112,17 +112,19 @@ function showDetails(wineID){
             var grapeArr = '';
             var $table = $('<table class="winedetails">');
 
+            var $img = $('<img class="img-fluid" alt="Responsive image" src="../IMG/'+productInformation.articleNumber+'.jpg"> ')
+
             var $name = $('<tr class="infospace">').append(
                 
                 $('<td class="infospace">').text("Namn: " + productInformation.name)
             );
             var $price = $('<tr class="infospace">').append(
                 
-                $('<td class="infospace">').text("Pris: " + productInformation.price)                   
+                $('<td class="infospace">').text("Pris: " + productInformation.price + " kr")                   
             );
             var $rating = $('<tr class="infospace">').append(
                 
-                $('<td class="infospace">').text("Betyg: " + productInformation.stars)
+                $('<td class="infospace">').text("Betyg: " + productInformation.stars + " stjärnor")
             );
             var $color = $('<tr class="infospace">').append(
                 
@@ -161,6 +163,7 @@ function showDetails(wineID){
                 $('<td class="infospace">').text("Region: " + productInformation.region)
             );
             $table.append(
+                $img,
                 $name,
                 $price,
                 $rating,

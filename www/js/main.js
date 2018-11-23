@@ -15,11 +15,7 @@ function showList(){
             for (var i = 0; i < products.length; i++) {
          
 
-<<<<<<< HEAD
-                listItems += '<div class="wines" onClick=showDetails("'+ products[i]._id +'")><img class="img" src="../IMG/'+products[i].articleNumber+'.jpg"><div class="wineName">' + products[i].name + '</div> <div class="winePrice">' + products[i].price + " kr" + '</div></div>';
-=======
                 listItems += '<div class="wines" onClick=showDetails("'+ products[i]._id +'")><img class="img-fluid" alt="Responsive image" src="../IMG/'+products[i].articleNumber+'.jpg"><div class="wineName">' + products[i].name + '</div> <div class="winePrice">' + products[i].price + " kr" + '</div></div>';
->>>>>>> 3faace69bf7d39f64265da359dff5b0c28154a66
 
                 
             };
@@ -76,11 +72,7 @@ function categorizeList(color){
             if(color == 'all'){
             //Fetches all wines
                 for (var i = 0; i < products.length; i++) {
-<<<<<<< HEAD
-                    listItems += '<div class="wines" onClick=showDetails("'+ products[i]._id +'")><img class="img" src="../IMG/'+products[i].articleNumber+'.jpg"><div class="wineName">' + products[i].name + '</div> <div class="winePrice">' + products[i].price + " kr" + '</div></div>';
-=======
                     listItems += '<div class="wines" onClick=showDetails("'+ products[i]._id +'")><img class="img-fluid" alt="Responsive image" src="../IMG/'+products[i].articleNumber+'.jpg"><div class="wineName">' + products[i].name + '</div> <div class="winePrice">' + products[i].price + " kr" + '</div></div>';
->>>>>>> 3faace69bf7d39f64265da359dff5b0c28154a66
                     
                 };
                 listItems += '</div>';
@@ -92,11 +84,7 @@ function categorizeList(color){
             //fetches wines in this specific category
             for(var i = 0; i < products.length; i++){
                 if(products[i].color == color){
-<<<<<<< HEAD
-                    categorizedProducts += '<div class="wines" onClick=showDetails("'+ products[i]._id +'")><img class="img" src="../IMG/'+products[i].articleNumber+'.jpg"><div class="wineName">' + products[i].name + '</div> <div class="winePrice">' + products[i].price + " kr" + '</div></div>';
-=======
                     categorizedProducts += '<div class="wines" onClick=showDetails("'+ products[i]._id +'")><img class="img-fluid" alt="Responsive image" src="../IMG/'+products[i].articleNumber+'.jpg"><div class="wineName">' + products[i].name + '</div> <div class="winePrice">' + products[i].price + " kr" + '</div></div>';
->>>>>>> 3faace69bf7d39f64265da359dff5b0c28154a66
 
                 };
             };

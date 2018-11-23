@@ -39,7 +39,7 @@ function showList(){
                 colorList += '<option value="'+result[i]+'">'+result[i]+'</option>';
             };
             //an option to go back and show all the wines
-            colorList += '<option value="all">Show all</option>'
+            colorList += '<option value="all">Visa alla</option>'
             //append everything to the div
             var $select = $('<select id="categoryList" class="winecategory" onchange="categorizeList(this.value)">').append(
                 colorList
@@ -120,11 +120,11 @@ function showDetails(wineID){
             );
             var $price = $('<tr class="infospace">').append(
                 
-                $('<td class="infospace">').text("Pris: " + productInformation.price)                   
+                $('<td class="infospace">').text("Pris: " + productInformation.price + " kr")                   
             );
             var $rating = $('<tr class="infospace">').append(
                 
-                $('<td class="infospace">').text("Betyg: " + productInformation.stars)
+                $('<td class="infospace">').text("Betyg: " + productInformation.stars + " stjärnor")
             );
             var $color = $('<tr class="infospace">').append(
                 
@@ -193,7 +193,10 @@ function addCart(wineID){
         type: 'GET',
         url: 'wine/'+wineID,
         success: function(wine){
-            var $shoppingCart = $('<div class="shoppingcart rounded">').append(
+            counter ++;
+
+            var $shoppingCart = $('<a id='+wine._id+' class="shoppingcart rounded">').append(
+
                     $('<span class="item">').append(
                         $('<span class="item-left">').append(
                             $('<img class="img-thumbnail imageThumbnail" src="IMG/'+wine.articleNumber+'.jpg" alt="" />'),
@@ -202,8 +205,8 @@ function addCart(wineID){
                                 
                             )
                         ),
-                        $('<span class="item-left">').append(
-                            $('<button class="btn btn-danger  fa fa-close">').text('Ta Bort')
+                        $('<span class="item-right">').append(
+                            $('<button class="btn btn-danger  fas fa-close" onClick=removeWine("'+wine._id+'")>').text('Ta Bort')
                         )
                 ),
                 $('<li class="dropdown-divider">'),
@@ -216,15 +219,18 @@ function addCart(wineID){
     });
 };
 
+function removeWine(wineID){
+    $('#'+wineID).remove();
+};
+
 function showCart(){
     document.getElementById("myDropdown").classList.toggle("show");
 }
 
-window.onclick = function(e) {
-    if (!e.target.matches('.dropbtn')) {
-      var myDropdown = document.getElementById("myDropdown");
-        if (myDropdown.classList.contains('show')) {
-          myDropdown.classList.remove('show');
-        }
-    }
-  }
+$(document).ready(function () {
+    $(".dropbtn").click(function () {
+        //Toggle the child but don't include them in the hide selector using .not()
+        $('.dropdown-content > ul').not($(this).children("ul").toggle()).hide();
+
+    });
+});

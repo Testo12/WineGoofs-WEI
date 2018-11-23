@@ -1,4 +1,4 @@
-.center {
+.logocenter {
     /*Is used to put the logo in the middle of the screen*/
     text-align: center;
     padding: 20px;
@@ -67,19 +67,33 @@ body {
 .wineDetailsOverlay {
     display: none;
     border: black solid 1px;
-    width: 32.01%;
+    width: fit-content;
     float: left;
     position: fixed;
     overflow: visible;
     margin: auto;
-    height: 420px;
-    margin-right: 10px;
-    margin-bottom: 20px;
-    margin-left: 10px;
+    height: auto;
+    margin-left: 20px;
+    margin-top: 20px;
     font-size: 1.1em;
-    font-style: italic;
-    font-weight: bold;
-    background-color: white;
+    background-color: aliceblue;
     padding: 15px;
     z-index: 6;
 }
+
+.wineDetailsOverlay-close {
+    border: black solid 1px;
+    padding: 1px;
+    color: red;
+    background-color:white;
+    margin-bottom: 20px;
+    height: 25px;
+    width: 25px;
+    border-bottom: 0px;
+}
+
+.infospace {
+    margin: auto;
+    padding: 10px;
+}
+

@@ -112,30 +112,30 @@ function showDetails(wineID){
             var grapeArr = '';
             var $table = $('<table class="winedetails">');
             var $name = $('<tr>').append(
-                $('<th>').text("Name"),
+                $('<th>').text("Namn"),
                 $('<td>').text(productInformation.name)
             );
             var $price = $('<tr>').append(
-                $('<th>').text("Price"),
+                $('<th>').text("Pris"),
                 $('<td>').text(productInformation.price)                   
             );
             var $rating = $('<tr>').append(
-                $('<th>').text("Rating"),
+                $('<th>').text("Betyg"),
                 $('<td>').text(productInformation.stars)
             );
             var $color = $('<tr>').append(
-                $('<th>').text("Color"),
+                $('<th>').text("Typ"),
                 $('<td>').text(productInformation.color)
             );
             var $country = $('<tr>').append(
-                $('<th>').text("Country of origin"),
+                $('<th>').text("Ursprung"),
                 $('<td>').text(productInformation.country)
             );
             for(var i = 0; i<productInformation.grapes.length; i++){
                 grapeArr += '<option value = "'+productInformation.grapes[i]+'">'+productInformation.grapes[i]+'</option>';
             }
             var $grapes = $('<tr>').append(
-                $('<th>').text("Grapes"),
+                $('<th>').text("Druvor"),
                 $('<td>').append(
                     $('<form id="grapeDropDown">').append(
                         $('<select id="grapeList">').append(
@@ -146,7 +146,7 @@ function showDetails(wineID){
                 )
             );
             var $year = $('<tr>').append(
-                $('<th>').text("Year Made"),
+                $('<th>').text("Produktions år"),
                 $('<td>').text(productInformation.yearMade)
             );
             var $region = $('<tr>').append(
@@ -164,15 +164,55 @@ function showDetails(wineID){
                 $region
             );
             $('.wineDetailsOverlay').append(
-                $table
+                $table,
+                $('<button onClick="addCart("'+ productInformation.articleNumber +'")">Lägg till korgen</button>')
             );
-            wineOverlay.fadeIn(100);
+            $('.wineDetailsOverlay, #overlay-back').fadeIn(500);
             $('body').css('overflow', 'hidden');
             $('.wineDetailsOverlay-close').click(function () {
-                wineOverlay.fadeOut(100);
+                $('.wineDetailsOverlay, #overlay-back').fadeOut(500);
                 $('body').css('overflow', 'auto');
             });
 
         }
     });
 };
+
+function addCart(wineNumber){
+    var product = {
+        winearticleNumber: wineNumber
+    };
+    $.ajax({
+        type: 'POST',
+        contentType : "application/json",
+        url: 'cart/create',
+        data : JSON.stringify(product),
+        success: function(response){
+            loadCart(wineNumber);
+        }
+    });
+};
+
+function loadCart(wineNumber){
+    $.ajax({
+        type: 'GET',
+        url: 'wine',
+        success: function(list){
+            var wineList = list;
+            var wineID;
+            for(var i = 0; i < wineList; i++){
+                if(wineNumber == wineList[i].articleNumber){
+                    wineID += wineList[i]._id;
+                };
+            };
+            $.ajax({
+                type: 'GET',
+                url: 'cart/'+wineID,
+                success: function(result){
+                    
+                }
+            })
+        }
+    });
+};
+

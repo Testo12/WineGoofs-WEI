@@ -30,3 +30,10 @@ exports.number = function(req,res){
         res.send(wineArticleNumber);
     });
 };
+
+exports.list = function(req,res){
+    Cart.find(function(err, cartList){
+        if (err) return next(err);
+        res.send(cartList);
+    });
+};
